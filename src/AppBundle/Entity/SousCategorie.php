@@ -7,6 +7,7 @@ namespace AppBundle\Entity;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
+use AppBundle\Validator\Constraints as AssertCustom;
 
 /**
  * @ORM\Entity(repositoryClass="AppBundle\Repository\SousCategorieRepository")
@@ -24,6 +25,7 @@ class SousCategorie
 	/**
 	 * @ORM\Column(type="string")
 	 * @Assert\Length(min=2, minMessage="La sous-catégorie doit faire au moins 2 caractères.")
+	 * @AssertCustom\FirstLetterMatchCategory()
 	 *
 	 */
 	private $nom;
