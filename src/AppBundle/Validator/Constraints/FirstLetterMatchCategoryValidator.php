@@ -13,12 +13,10 @@ class FirstLetterMatchCategoryValidator extends ConstraintValidator
 	public function validate($value, Constraint $constraint)
 	{
 		/**
-		 * @var SousCategorie $sousCategorie
+		 * @var SousCategorie $data
 		 */
-		$sousCategorie = $this->context->getObject();
-		$lettreCategorie = substr($sousCategorie->getCategorie()->getNom(), 0, 1);
-		$lettreSousCategorie = substr($sousCategorie->getNom(), 0,1);
-		if($lettreCategorie !== $lettreSousCategorie) {
+		$data = $this->context->getObject();
+		if(substr($value, 0, 1) !== $data->getCategorie()->getNom()) {
 			$this->context->buildViolation($constraint->message)->addViolation();
 		}
 	}

@@ -1,0 +1,42 @@
+body {
+    background-color: #9c27b0;
+    color: #fff;
+}
+
+.search-bar {
+    position: absolute;
+    left: 40%;
+    top:50vh;
+}
+
+.modal-title {
+    color: #9c27b0;
+}
+
+.close {
+    color: #d05ce3;
+}
+
+form label {
+    color: #000;
+}
+
+.addCategory--success {
+    position:relative;
+    top:20%;
+}
+
+.btn-color-primary {
+    background-color: #9c27b0;
+    border-color: #d05ce3;
+}
+
+.btn-color-primary:hover {
+    color: #fff;
+}
+
+#loadModalAddCategory {
+    background-color: #d05ce3;
+    color:#fff;
+    border:0;
+}

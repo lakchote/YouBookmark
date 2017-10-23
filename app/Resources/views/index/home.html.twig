@@ -1,1 +1,36 @@
 {% extends 'base.html.twig' %}
+
+{% block body %}
+    <div class="col-xs-12">
+        <div class="search-bar">
+            {% for msg in app.flashes('success') %}
+                <div class="addCategory--success">
+                      <span>{{ msg }}</span>
+                </div>
+            {% endfor %}
+            <form class="form-inline">
+                    <div class="input-group">
+                        <input type="search" maxlength="1" class="form-control" placeholder="Rechercher..." data-source="{{ path('get_category') }}" id="searchInput">
+                            <div class="input-group-btn">
+                                <button type="submit" class="btn btn-color-primary" id="submitSearch">
+                                    <span class="fa fa-search" aria-hidden="true"></span>
+                                </button>
+                            </div>
+                    </div>
+            </form>
+        </div>
+        <div class="modal fade" data-url="{{ path('modal_add_category') }}" id="modalAddCategory" tabindex="-1" role="dialog" aria-labelledby="modalAddCategoryLabel">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Fermer">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                        <h4 class="modal-title">Ajouter une catégorie</h4>
+                    </div>
+                    <div class="modal-body" id="addCategoryBody"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

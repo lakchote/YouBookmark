@@ -1,0 +1,24 @@
+{{ form_start(form) }}
+    {{ form_row(form.nom) }}
+    {{ form_row(form.categorie) }}
+    <button type="submit" class="btn btn-color-primary">Valider</button>
+{{ form_end(form) }}
+
+<script>
+    $('button').click(function (e) {
+        e.preventDefault();
+        $.ajax({
+           url: '{{ path('modal_add_category', {'nomCategorie' : categorie}) }}',
+           method: 'POST',
+           data: $('form').serializeArray(),
+           statusCode: {
+               401: function(jqXHR) {
+                   $('#addCategoryBody').html(jqXHR.responseText);
+               },
+               200: function () {
+                   location.reload();
+               }
+           }
+        });
+    })
+</script>
