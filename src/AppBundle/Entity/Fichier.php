@@ -33,6 +33,17 @@ class Fichier
 	 */
 	private $sousCategorie;
 
+
+	/**
+	 * @ORM\Column(type="datetime")
+	 */
+	private $dateUpload;
+
+	public function __construct()
+	{
+		$this->dateUpload = new \DateTime();
+	}
+
 	/**
 	 * @return integer
 	 */
@@ -71,6 +82,14 @@ class Fichier
 	public function setSousCategorie(SousCategorie $sousCategorie)
 	{
 		$this->sousCategorie = $sousCategorie;
+	}
+
+	/**
+	 * @return mixed
+	 */
+	public function getDateUpload()
+	{
+		return $this->dateUpload;
 	}
 
 }

@@ -25,6 +25,7 @@
                     <thead>
                         <tr>
                             <th>Nom</th>
+                            <th>Date</th>
                             <th>Actions</th>
                         </tr>
                     </thead>
@@ -33,6 +34,9 @@
                             <tr>
                                 <td>
                                     <a href="{{ asset('uploads/files/' ~ fichier.sousCategorie.categorie.nom ~ '/' ~ fichier.sousCategorie.nom ~ '/' ~ fichier.nom) }}">{{ fichier.nom }}</a>
+                                </td>
+                                <td>
+                                    <span style="color:#000;">{{ fichier.dateUpload|date('d-m-Y') }}</span>
                                 </td>
                                 <td>
                                     <a href="{{ path('delete_fichier', {'nom' : fichier.nom}) }}" class="btn btn-sm btn-black"><span class="fa fa-times" aria-hidden="true"></span> Supprimer</a>
