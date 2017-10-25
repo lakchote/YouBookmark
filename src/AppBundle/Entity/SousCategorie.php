@@ -23,10 +23,10 @@ class SousCategorie
 	private $id;
 
 	/**
-	 * @ORM\Column(type="string")
+	 * @ORM\Column(type="string", unique=true)
 	 * @Assert\Length(min=2, minMessage="La sous-catégorie doit faire au moins 2 caractères.")
 	 * @Assert\NotBlank()
-	 * @AssertCustom\FirstLetterMatchCategory()
+	 * @AssertCustom\FirstLetterMatchCategory(groups={"AddCategory"})
 	 */
 	private $nom;
 
@@ -67,7 +67,7 @@ class SousCategorie
 	 */
 	public function setNom($nom)
 	{
-		$nom = strtolower($nom);
+		(is_object($nom)) ? $nom = strtolower($nom->getNom()) : $nom = strtolower($nom);
 		$this->nom = ucfirst($nom);
 	}
 

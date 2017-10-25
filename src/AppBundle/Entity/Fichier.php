@@ -21,8 +21,8 @@ class Fichier
 	private $id;
 
 	/**
-	 * @ORM\Column(type="string")
-	 * @Assert\File(mimeTypes={"image/jpeg", "application/pdf"})
+	 * @ORM\Column(type="string", unique=true)
+	 * @Assert\File(mimeTypes={"image/jpeg", "image/png", "application/pdf"})
 	 *
 	 */
 	private $nom;

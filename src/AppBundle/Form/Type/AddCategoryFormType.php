@@ -28,6 +28,8 @@ class AddCategoryFormType extends AbstractType
     {
 		$resolver->setDefaults([
 			'data_class' => SousCategorie::class,
+			'validation_groups' => ['Default', 'AddCategory']
+
 		]);
     }
 }

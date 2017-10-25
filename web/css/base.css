@@ -9,6 +9,19 @@ body {
     top:50vh;
 }
 
+#searchInput:focus {
+    border-color: #d05ce3;
+    box-shadow: 0 1px 30px #d05ce3;
+}
+
+#camel
+{
+    position:absolute;
+    height: 200px;
+    width: 188px;
+    bottom:60px;
+}
+
 .modal-title {
     color: #9c27b0;
 }
@@ -17,13 +30,47 @@ body {
     color: #d05ce3;
 }
 
-form label {
+.modal form label {
     color: #000;
 }
 
+.has-error {
+    background-color: #6a0080;
+}
+
+.has-error .help-block, .has-error .control-label {
+    color: #fff;
+}
+
+#backToHome{
+    display:inline-block;
+    margin-bottom: 20px;
+    color: #fff !important;
+    background-color: #d05ce3;
+    padding:5px;
+    text-decoration:none;
+    border-radius: 4px;
+ }
+
 .addCategory--success {
-    position:relative;
-    top:20%;
+    position: relative;
+    top: 20%;
+    background-color: #d05ce3;
+    padding:5px;
+    border-top-left-radius: 4px;
+    border-top-right-radius: 4px;
+}
+
+#removeCategory {
+    background-color: #6a0080;
+    padding: 5px;
+    text-align: center;
+    margin-top: 10px;
+}
+
+#removeCategory a {
+    color: #fff;
+    text-decoration: none;
 }
 
 .btn-color-primary {
@@ -31,12 +78,56 @@ form label {
     border-color: #d05ce3;
 }
 
+.btn-black {
+    background-color: #000;
+    color: #fff;
+}
+
+.btn-black:hover {
+    color: #d05ce3;
+}
+
+.ui-menu .ui-state-focus,
+.ui-menu .ui-state-active {
+    margin: 0 !important;
+    color:#fff;
+    background-color: #000 !important;
+    border-width:0 !important;
+}
+
+.ui-menu-item {
+    width:100% !important;
+}
+
 .btn-color-primary:hover {
     color: #fff;
+}
+
+.btn-upload--cta {
+    background-color: #d05ce3;
 }
 
 #loadModalAddCategory {
     background-color: #d05ce3;
     color:#fff;
     border:0;
+}
+
+table.dataTable thead .sorting_desc, table.dataTable thead .sorting {
+    background-image: none !important;
+}
+
+.table-responsive {
+    margin-top:50px;
+    margin-bottom:30px;
+}
+
+.ui-icon-caret-2-n-s {
+    display:none !important;
+}
+
+@media screen and (max-width: 767px) {
+    .table-responsive {
+        width:85%;
+    }
 }

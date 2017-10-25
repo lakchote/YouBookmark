@@ -1,0 +1,23 @@
+{{ form_start(form) }}
+    {{ form_row(form.nom) }}
+<button type="submit" class="btn btn-color-primary">Valider</button>
+{{ form_end(form) }}
+
+<script>
+    $('button').click(function (e) {
+        e.preventDefault();
+        $.ajax({
+            url: '{{ path('modal_remove_category') }}',
+            method: 'POST',
+            data: $('form').serializeArray(),
+            statusCode: {
+                401: function(jqXHR) {
+                    $('#removeCategoryBody').html(jqXHR.responseText);
+                },
+                200: function () {
+                    location.reload();
+                }
+            }
+        });
+    })
+</script>

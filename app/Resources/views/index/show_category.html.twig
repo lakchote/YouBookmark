@@ -1,0 +1,54 @@
+{% extends 'base.html.twig' %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/dt/dt-1.10.16/datatables.min.css">
+{% endblock %}
+
+{% block body %}
+    <div class="col-xs-12 col-sm-10 col-md-8">
+        <h2>Catégorie : {{ sousCategorie.nom }} </h2>
+        {% for msg in app.flashes('success') %}
+            <div class="alert alert-warning alert-dismissable">
+                <a href="#" class="close" data-dismiss="alert" aria-label="Fermer">&times;</a>
+                {{ msg }}
+            </div>
+        {% endfor %}
+        <a href="{{ path('home') }}" id="backToHome"><span class="fa fa-home" aria-hidden="true"></span>
+                Retourner à l'accueil</a>
+        {{ form_start(form) }}
+            {{ form_row(form.nom) }}
+        {{ form_end(form) }}
+        {% if fichiers|length > 0 %}
+            <div class="table-responsive">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Nom</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for fichier in fichiers %}
+                            <tr>
+                                <td>
+                                    <a href="{{ asset('uploads/files/' ~ fichier.sousCategorie.categorie.nom ~ '/' ~ fichier.sousCategorie.nom ~ '/' ~ fichier.nom) }}">{{ fichier.nom }}</a>
+                                </td>
+                                <td>
+                                    <a href="{{ path('delete_fichier', {'nom' : fichier.nom}) }}" class="btn btn-sm btn-black"><span class="fa fa-times" aria-hidden="true"></span> Supprimer</a>
+                                </td>
+                            </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        {% endif %}
+    </div>
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+    <script src="https://cdn.datatables.net/v/dt/dt-1.10.16/datatables.min.js"></script>
+    <script src="{{ asset('js/show_category.js') }}"></script>
+    <script src="https://cdn.datatables.net/1.10.16/js/dataTables.jqueryui.min.js"></script>
+{% endblock %}
