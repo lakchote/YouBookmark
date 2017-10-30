@@ -19,7 +19,7 @@ class DeleteService
 
 	public function deleteFile(Fichier $fichier)
 	{
-		$dir = '/uploads/files/' . $fichier->getSousCategorie()->getCategorie()->getNom() . '/' . $fichier->getSousCategorie()->getNom();
+		$dir = '/uploads/' . $fichier->getSousCategorie()->getCategorie()->getNom() . '/' . $fichier->getSousCategorie()->getNom();
 		unlink(getcwd() . $dir . '/' . $fichier->getNom());
 		$this->em->remove($fichier);
 		$this->em->flush();
@@ -27,11 +27,13 @@ class DeleteService
 
 	public function deleteDirectory(SousCategorie $sousCategorie)
 	{
-		$path = getcwd() . '/uploads/files/' . $sousCategorie->getCategorie()->getNom() . '/' . $sousCategorie->getNom();
+		$path = getcwd() . '/uploads/' . $sousCategorie->getCategorie()->getNom() . '/' . $sousCategorie->getNom();
 		foreach($sousCategorie->getFichiers() as $fichier)
 		{
 			unlink($path . '/' . $fichier->getNom());
 		}
-		rmdir($path);
+		if(is_dir($path)) { 
+		    rmdir($path);
+        };
 	}
 }
