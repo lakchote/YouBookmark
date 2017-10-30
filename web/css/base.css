@@ -122,8 +122,22 @@ table.dataTable thead .sorting_desc, table.dataTable thead .sorting {
     margin-bottom:30px;
 }
 
+.ui-menu {
+    top:54vh !important;
+}
+
+.ui-menu-item {
+    font-size:1.1em;
+}
+
 @media screen and (max-width: 767px) {
     .table-responsive {
         width:85%;
+    }
+}
+
+@media only screen and (min-device-width : 768px) and (max-device-width : 1024px)  {
+    .ui-menu {
+        top:53vh !important;
     }
 }
