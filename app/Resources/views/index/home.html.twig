@@ -4,6 +4,8 @@
     <div class="col-xs-12">
         <div class="search-bar">
             <img id="camel" src="{{ asset('img/camel.png') }}" class="img-responsive" alt="">
+            <span id="camel__speechBubble">
+            </span>
             {% for msg in app.flashes('success') %}
                 <div class="addCategory--success">
                       <span>{{ msg }}</span>
